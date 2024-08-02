@@ -1,4 +1,4 @@
-@import url('href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 :root{
     /* Primary */
     --Tomato: hsl(4, 100%, 67%);
@@ -14,4 +14,85 @@
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
     color: var(--DarkSlateGrey);
+    font-size: var(--fontSize);
+}
+body, main, header{
+    display: flex;
+    flex-direction: column;
+}
+body{
+    background-color: var(--CharcoalGrey);
+    align-items: center;
+    height: 100dvh;
+    padding: clamp(0rem, -0.898rem + 4.49vw, 2.75rem);
+}
+
+main{
+    background-color: var(--White);
+    max-width: 100%;
+    max-height: 100%;
+    flex-direction: column-reverse;
+    header{
+        padding: 1.3em;
+        justify-content: space-around;
+        h1{
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        p{
+            margin: 10px 0;
+        }
+        ul{
+            list-style: none;
+            position: relative;
+            margin-bottom: 10px;
+            li::before{
+                position: absolute;
+                content:"";
+                background-image: url('./assets/images/icon-list.svg');
+                width: 25px;
+                height: 25px;
+                left: 0;
+                background-repeat: no-repeat;
+            }
+        }
+        label{
+            font-size: 13px;
+            font-weight: 500;
+        }
+        input{
+            border: 1px solid var(--Grey);
+        }
+        input, button{
+            width: 100%;
+            padding: 1em;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        button{
+            background-color: var(--DarkSlateGrey);
+            color: var(--White);
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+    }
+    footer{
+        height: 43%;
+        border-radius: 10px;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+#success-message{
+    display: none;
+    width: 80%;
+    background-color: white;
+    h1{
+        font-size: 30px;
+    }
 }
