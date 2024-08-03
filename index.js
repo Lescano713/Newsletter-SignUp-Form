@@ -5,19 +5,42 @@ const form = document.querySelector('form');
 const body = document.body;
 
 
-buttonSubmit.addEventListener('click', e =>{
-    const email = inputEmail.value;
+// buttonSubmit.addEventListener('click', e =>{
+//     const email = inputEmail.value;
+//     e.preventDefault();
+//     if (!(email.includes("@gmail.com")) || email == "" ){
+//         form.classList.add('error-state');
+//         console.log(inputEmail.value)
+//     }else{
+//         mainContainer.style.display = 'none';
+//         messageShow(email);
+//         console.log("send")
+//     }
+
+// });
+
+
+form.addEventListener('submit', sendForm)
+function sendForm(e){
     e.preventDefault();
-    if (!(email.includes("@gmail.com")) || email == "" ){
-        form.classList.add('error-state');
-        console.log(inputEmail.value)
-    }else{
-        mainContainer.style.display = 'none';
-        messageShow(email);
-        console.log("enviado")
+
+    const data = {};
+    const fields = e.target.querySelectorAll('input', 'select');
+    for (const field of fields) {
+        if (!(field.value.includes("@gmail.com")) || field.value == "") {
+            form.classList.add('error-state');
+            console.log("error");
+        }else{
+            data[field.name] = field.value;
+            form.classList.remove('error-state');
+            mainContainer.style.display = 'none';
+            messageShow(data[field.name]);
+            console.log("success");
+        }
     }
 
-});
+}
+
 
 const messageShow =(email) => {
     const headerMessage = document.createElement('header');
