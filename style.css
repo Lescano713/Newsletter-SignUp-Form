@@ -12,6 +12,7 @@
     --fontSize: 16px;
     /* paddings */
     --bodyPadding: clamp(0.5rem, -0.321rem + 4.235vw, 2.3rem);
+    --infoContainerPadding :clamp(1rem, -0.003rem + 5.176vw, 3.2rem);
     /* borders */
     --borderRadius: 30px
 }
@@ -29,6 +30,7 @@ body, main, header{
 body{
     background-color: var(--CharcoalGrey);
     align-items: center;
+    justify-content: center;
     height: 100dvh;
     h1{
         font-size: var(--SizeH1);
@@ -136,6 +138,18 @@ form{
     body{
         padding: var(--bodyPadding);
     }
+    .success-message{
+        border-radius: var(--borderRadius);
+        justify-items: center;
+        height: 75%;
+        width: 90%;
+        max-width: 27.5em;;
+        padding: 3em 2.5em;
+        h1{
+            margin-top: 15px;
+            font-size: 45px;
+        }
+    }
 }
 @media (min-width: 600px) {
     body{
@@ -146,7 +160,7 @@ form{
         }
         header.info-container{
             width: 55%;
-            padding: clamp(1rem, -0.003rem + 5.176vw, 3.2rem);
+            padding: var(--infoContainerPadding);
             padding-right: 1em;
         }
         footer.img-container{

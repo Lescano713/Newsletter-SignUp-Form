@@ -1,5 +1,4 @@
 const mainContainer = document.getElementById('main-container');
-const infoContainer = document.querySelector('.info-container');
 const inputEmail = document.querySelector('input');
 const buttonSubmit = document.querySelector('button[type="submit"]');
 const form = document.querySelector('form');
@@ -35,7 +34,7 @@ const messageShow =(email) => {
     h1.textContent = 'Thanks for subscribing!';
 
     const p = document.createElement('p');
-    p.textContent = `A confirmation email has been sent to ${email} . Please open it and click the button inside to confirm your subscription.`;
+    p.innerHTML = `A confirmation email has been sent to <b>${email}</b> . Please open it and click the button inside to confirm your subscription.`;
 
     const button = document.createElement('button');
     button.textContent = "Dismiss message";
