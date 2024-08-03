@@ -8,7 +8,7 @@ const body = document.body;
 buttonSubmit.addEventListener('click', e =>{
     const email = inputEmail.value;
     e.preventDefault();
-    if (!email.search("@gmail.com") ) {
+    if (!(email.includes("@gmail.com")) || email == "" ){
         form.classList.add('error-state');
         console.log(inputEmail.value)
     }else{
