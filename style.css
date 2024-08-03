@@ -38,7 +38,7 @@ main{
     max-height: 100%;
     flex-direction: column-reverse;
     border-radius: var(--borderRadius);
-    header{
+    header.info-container{
         padding: 1.3em;
         justify-content: space-around;
         h1{
@@ -62,26 +62,6 @@ main{
                 background-repeat: no-repeat;
             }
         }
-        label{
-            font-size: 13px;
-            font-weight: 500;
-        }
-        input{
-            border: 1px solid var(--Grey);
-        }
-        input, button{
-            width: 100%;
-            padding: 1em;
-            border-radius: 10px;
-            margin: 10px 0;
-        }
-        button{
-            background-color: var(--DarkSlateGrey);
-            color: var(--White);
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-        }
     }
     footer{
         border-radius: 10px;
@@ -92,6 +72,51 @@ main{
         }
     }
 }
+
+form{
+    position: relative;
+    label, span{
+        font-size: 13px;
+        font-weight: 500;
+    }
+    span{
+        position: absolute;
+        right: 0;
+        color: tomato;
+        display: none;
+    }
+    input{
+        border: 1px solid var(--Grey);
+    }
+    input, button{
+        width: 100%;
+        padding: 1em;
+        border-radius: 8px;
+        margin: 10px 0;
+    }
+    button{
+        background-color: var(--DarkSlateGrey);
+        color: var(--White);
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.error-state{
+    span{
+        display: inline;
+    }
+    input{
+        border: 1px solid var(--Tomato);
+        color: var(--Tomato);
+        background-color: rgba(255, 99, 71, 0.103);
+        &::placeholder{
+            color: var(--Tomato);
+        }
+    }
+}
+
 
 #success-message{
     display: none;
@@ -120,7 +145,6 @@ main{
             padding-right: 1em;
         }
         footer.img-container{
-            height: 100%;
             padding: 1.1em;
             display: flex;
             align-items: center;
