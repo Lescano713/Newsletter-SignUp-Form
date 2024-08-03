@@ -88,19 +88,19 @@ form{
     input{
         border: 1px solid var(--Grey);
     }
-    input, button{
-        width: 100%;
-        padding: 1em;
-        border-radius: 8px;
-        margin: 10px 0;
-    }
-    button{
-        background-color: var(--DarkSlateGrey);
-        color: var(--White);
-        font-weight: 500;
-        border: none;
-        cursor: pointer;
-    }
+}
+input, button{
+    width: 100%;
+    padding: 1em;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+.buttons{
+    background-color: var(--DarkSlateGrey);
+    color: var(--White);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
 }
 
 .error-state{
@@ -121,6 +121,7 @@ form{
 #success-message{
     display: none;
     width: 80%;
+    padding: 2em;
     background-color: white;
     h1{
         font-size: 30px;

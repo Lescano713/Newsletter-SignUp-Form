@@ -3,6 +3,7 @@ const infoContainer = document.querySelector('.info-container');
 const inputEmail = document.querySelector('input');
 const button = document.querySelector('button[type="submit"]');
 const form = document.querySelector('form');
+const succsessMessage = document.querySelector('#success-message')
 
 
 button.addEventListener('click', e =>{
@@ -12,6 +13,7 @@ button.addEventListener('click', e =>{
         console.log(inputEmail.value)
     }else{
         mainContainer.style.display = 'none';
+        succsessMessage.style.display = 'block'
         console.log("enviado")
     }
 
