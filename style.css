@@ -30,6 +30,26 @@ body{
     background-color: var(--CharcoalGrey);
     align-items: center;
     height: 100dvh;
+    h1{
+        font-size: var(--SizeH1);
+        margin-bottom: 10px;
+    }
+    p{
+        margin: 10px 0;
+    }
+    input, button{
+        width: 100%;
+        padding: 1em;
+        border-radius: 8px;
+        margin: 10px 0;
+    }
+    button{
+        background-color: var(--DarkSlateGrey);
+        color: var(--White);
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+    }
 }
 
 main{
@@ -41,13 +61,6 @@ main{
     header.info-container{
         padding: 1.3em;
         justify-content: space-around;
-        h1{
-            font-size: var(--SizeH1);
-            margin-bottom: 10px;
-        }
-        p{
-            margin: 10px 0;
-        }
         ul{
             list-style: none;
             position: relative;
@@ -89,19 +102,6 @@ form{
         border: 1px solid var(--Grey);
     }
 }
-input, button{
-    width: 100%;
-    padding: 1em;
-    border-radius: 8px;
-    margin: 10px 0;
-}
-.buttons{
-    background-color: var(--DarkSlateGrey);
-    color: var(--White);
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-}
 
 .error-state{
     span{
@@ -118,13 +118,17 @@ input, button{
 }
 
 
-#success-message{
-    display: none;
-    width: 80%;
-    padding: 2em;
+.success-message{
+    display: grid;
+    height: 100%;
+    align-items: center;
     background-color: white;
+    padding: 1em;
     h1{
-        font-size: 30px;
+        margin-top: 40px;
+    }
+    button{
+        align-self: self-end;
     }
 }
 

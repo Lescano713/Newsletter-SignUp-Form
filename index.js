@@ -1,34 +1,47 @@
 const mainContainer = document.getElementById('main-container');
 const infoContainer = document.querySelector('.info-container');
 const inputEmail = document.querySelector('input');
-const button = document.querySelector('button[type="submit"]');
+const buttonSubmit = document.querySelector('button[type="submit"]');
 const form = document.querySelector('form');
-const succsessMessage = document.querySelector('#success-message')
+const body = document.body;
 
 
-button.addEventListener('click', e =>{
+buttonSubmit.addEventListener('click', e =>{
+    const email = inputEmail.value;
     e.preventDefault();
-    if (!inputEmail.value.search("@gmail.com") ) {
+    if (!email.search("@gmail.com") ) {
         form.classList.add('error-state');
         console.log(inputEmail.value)
     }else{
         mainContainer.style.display = 'none';
-        succsessMessage.style.display = 'block'
+        messageShow(email);
         console.log("enviado")
     }
 
 });
 
-// function errorState(){
-//     const label = inputEmail.value;
-//     if (label == "a") {
-//         inputEmail.classList.add('error-state');
-//     }else{
-//         console.log("no agarra")
-//     }
-// }
-// function show(){
-//     form.classList.add('error-state')
-//     form.style.backgroundColor = "red";
-    
-// }
+const messageShow =(email) => {
+    const headerMessage = document.createElement('header');
+    headerMessage.classList.add('success-message');
+
+    const divMessage = document.createElement('div');
+    divMessage.classList.add('message');
+
+    const iconSuccess = document.createElement('img');
+    iconSuccess.src = './assets/images/icon-success.svg';
+    iconSuccess.alt = 'Icon Success';
+
+    const h1 = document.createElement('h1');
+    h1.textContent = 'Thanks for subscribing!';
+
+    const p = document.createElement('p');
+    p.textContent = `A confirmation email has been sent to ${email} . Please open it and click the button inside to confirm your subscription.`;
+
+    const button = document.createElement('button');
+    button.textContent = "Dismiss message";
+
+    divMessage.append(iconSuccess, h1, p);
+    headerMessage.append(divMessage, button);
+    body.appendChild(headerMessage);
+
+}
