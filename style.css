@@ -7,6 +7,8 @@
     --CharcoalGrey: hsl(235, 18%, 26%);
     --Grey: hsl(231, 7%, 60%);
     --White: hsl(0, 0%, 100%);
+    /* linear  gradient */
+    --stateButton: linear-gradient(to right, #FF6E44 0%, #FF285D 69%, #FF2665 100%);
     /* FontSizes */
     --SizeH1: clamp(2.5rem, 2.215rem + 1.471vw, 3.125rem);
     --fontSize: 16px;
@@ -51,6 +53,7 @@ body{
         font-weight: 500;
         border: none;
         cursor: pointer;
+        transition: all .5s;
     }
 }
 
@@ -132,6 +135,10 @@ form{
     button{
         align-self: self-end;
     }
+}
+
+button:hover{
+    background: var(--stateButton);
 }
 
 @media (min-width: 420px) {
