@@ -52,90 +52,98 @@ Your users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - mobile-first workflow
 - javaScript
 
 
 ### What I learned
 
-<p>I learned how to create a pseudo element and position it:</p>
+<p>I learned how to alternate between states using <b>classList.toggle</b>, <b>classList.add</b>, and <b>classList.remove</b></p>
 
 ```css
-  .social-media::after{
-        content: "";
-        width: 25px;
-        height: 25px;
-        background-color: var(--VeryDarkGrayishBlue);
-        position: absolute;
-        top: 74%;
-        transform: rotate(45deg);
+  .error-state{
+    .email-error{
+        display: inline;
     }
+    input{
+        border: 1px solid var(--Tomato);
+        color: var(--Tomato);
+        background-color: rgba(255, 99, 71, 0.103);
+        &::placeholder{
+            color: var(--Tomato);
+        }
+    }
+}
 ```
+```js
+  form.classList.remove('error-state');
+  form.classList.add('error-state');
+```
+
 <p>I also implemented media queries and flexbox to convert columns into rows, making the article more responsive on larger screen sizes:</p>
 
 
 ```css
-    @media (min-width:850px){
-      article{
-          flex-direction: row;
-          max-width: 42em;
-          overflow: visible;
-          .info-container{
-              padding: 0.5em;
+    @media (min-width: 420px) {
+    body{
+        padding: var(--bodyPadding);
+    }
+    .success-message{
+        border-radius: var(--borderRadius);
+        justify-items: center;
+        height: 75%;
+        width: 90%;
+        max-width: 27.5em;;
+        padding: 3em 2.5em;
+        h1{
+            margin-top: 15px;
+            font-size: 45px;
+        }
+    }
+}
+```
+
+<p>I created a function to change the content of the body when the form is submitted. It takes an email as a parameter and updates the content based on the email provided by the user.</p>
+
+```js
+ const messageShow =(email) => {
+
+  //more elements
+
+    const p = document.createElement('p');
+    p.innerHTML = `A confirmation email has been sent to <b>${email}</b> . Please open it and click the button inside to confirm your subscription.`;
+
+    divMessage.append(iconSuccess, h1, p);
+    headerMessage.append(divMessage, button);
+    body.appendChild(headerMessage);
+
+}
+```
+
+<p>I used an<b>EventListener</b> to trigger actions when the form is submitted, and I also implemented email validation for the form.</p>
+
+```js
+    form.addEventListener('submit', sendForm)
+    function sendForm(e){
+    e.preventDefault();
+
+    const data = {};
+    const fields = e.target.querySelectorAll('input', 'select');
+      for (const field of fields) {
+          if (!(field.value.includes("@gmail.com")) || field.value == "") {
+              form.classList.add('error-state');
+              console.log("error");
+          }else{
+              data[field.name] = field.value;
+              form.classList.remove('error-state');
+              mainContainer.style.display = 'none';
+              messageShow(data[field.name]);
+              console.log("success");
           }
       }
+
     }
 ```
-<p>I created an array to facilitate data entry, which helped me reduce the amount of HTML needed:</p>
-
-```js
- const articles = [{
-    imageAuthor: './images/avatar-michelle.jpg',
-    author: 'Michelle Appleton',
-    date: '28 Jun 2020',
-    imageArticle: './images/drawers.jpg',
-    title: 'Shift the Overall Look and Feel by Adding These Wonderful Touches to Furniture in Your Home',
-    introduction: 'Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.',
-    facebook: '#',
-    twitter: '#',
-    pinterest: '#',
-}]
-```
-
-
-<p>Then, I created a function that adds the elements to the DOM from the retrieved data:</p>
-
-```js
- function uploadingArticles (){
-    main.innerHTML = "";
-    articles.forEach(article =>{
-      //html elements
-      })
-    }
-```
-
-<p>Here’s how I handled event listeners to detect user clicks and apply additional styles to the button:</p>
-
-```js
-    const authorShare = document.getElementById("share-author");
-    const socialMediaDiv = document.getElementById("social-div");
-
-
-    authorShare.addEventListener('click', e =>{
-        socialMediaDiv.classList.toggle("show");
-    })
-```
-```css
-  .show{
-      opacity: 1;
-      bottom: 0;
-      transition: all .3s ease-in-out;
-  }
-
-```
-
-
 
 
 ### Continued development
