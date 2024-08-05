@@ -1,23 +1,6 @@
 const mainContainer = document.getElementById('main-container');
-const inputEmail = document.querySelector('input');
-const buttonSubmit = document.querySelector('button[type="submit"]');
 const form = document.querySelector('form');
 const body = document.body;
-
-
-// buttonSubmit.addEventListener('click', e =>{
-//     const email = inputEmail.value;
-//     e.preventDefault();
-//     if (!(email.includes("@gmail.com")) || email == "" ){
-//         form.classList.add('error-state');
-//         console.log(inputEmail.value)
-//     }else{
-//         mainContainer.style.display = 'none';
-//         messageShow(email);
-//         console.log("send")
-//     }
-
-// });
 
 
 form.addEventListener('submit', sendForm)
@@ -43,6 +26,11 @@ function sendForm(e){
 
 
 const messageShow =(email) => {
+    const existingMessage = document.querySelector('header.success-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+
     const headerMessage = document.createElement('header');
     headerMessage.classList.add('success-message');
 
@@ -59,11 +47,17 @@ const messageShow =(email) => {
     const p = document.createElement('p');
     p.innerHTML = `A confirmation email has been sent to <b>${email}</b> . Please open it and click the button inside to confirm your subscription.`;
 
-    const button = document.createElement('button');
-    button.textContent = "Dismiss message";
+    const buttonDismiss = document.createElement('button');
+    buttonDismiss.textContent = "Dismiss message";
+    buttonDismiss.type = "button";
+
+    buttonDismiss.addEventListener("click", e=>{
+        headerMessage.remove();
+        mainContainer.style.display = "flex";
+    })
 
     divMessage.append(iconSuccess, h1, p);
-    headerMessage.append(divMessage, button);
+    headerMessage.append(divMessage, buttonDismiss);
     body.appendChild(headerMessage);
 
 }
