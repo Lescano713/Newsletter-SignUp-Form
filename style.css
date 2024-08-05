@@ -151,22 +151,27 @@ form{
         }
     }
 }
-@media (min-width: 600px) {
+@media (min-width: 700px) {
     body{
-        justify-content: center;
+        justify-content: space-around;
         main{
             flex-direction: row;
-            max-width: 55em;
+            max-width: 52em;
+            justify-content: end;
         }
         header.info-container{
-            width: 50%;
+            width: 51%;
+            height: 96%;
             padding: var(--infoContainerPadding);
             padding-right: 1em;
+            align-self: center;
         }
         footer.img-container{
             padding: 1.1em;
             display: flex;
-            align-items: center;
+            img{
+                height: 100%;
+            }
         }
     }
 }
