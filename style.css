@@ -83,7 +83,7 @@ main{
         overflow: hidden;
         img{
             width: 100%;
-            height: auto;
+            height: fit-content;
         }
     }
 }
