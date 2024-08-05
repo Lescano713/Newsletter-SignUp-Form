@@ -156,10 +156,10 @@ form{
         justify-content: center;
         main{
             flex-direction: row;
-            max-width: 50em;
+            max-width: 55em;
         }
         header.info-container{
-            width: 55%;
+            width: 50%;
             padding: var(--infoContainerPadding);
             padding-right: 1em;
         }
